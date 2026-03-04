@@ -1,0 +1,241 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- Font Declarations ---- */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 200 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/assets/fonts/InstrumentSerif.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* === Karunya Homoeo Clinic Color System === */
+    /* Primary: Deep forest green — trust, nature, healing */
+    --primary: 0.38 0.11 152;
+    --primary-foreground: 0.98 0.01 152;
+
+    /* Secondary: Soft sage — calm, natural */
+    --secondary: 0.93 0.04 152;
+    --secondary-foreground: 0.3 0.08 152;
+
+    /* Background: Warm cream white */
+    --background: 0.98 0.008 90;
+    --foreground: 0.18 0.04 152;
+
+    /* Card: Pure warm white */
+    --card: 0.995 0.002 90;
+    --card-foreground: 0.18 0.04 152;
+
+    /* Popover */
+    --popover: 0.995 0.002 90;
+    --popover-foreground: 0.18 0.04 152;
+
+    /* Accent: Warm teal */
+    --accent: 0.88 0.06 175;
+    --accent-foreground: 0.22 0.1 175;
+
+    /* Muted: Light sage gray */
+    --muted: 0.94 0.025 152;
+    --muted-foreground: 0.48 0.055 152;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* UI chrome */
+    --border: 0.88 0.03 152;
+    --input: 0.9 0.03 152;
+    --ring: 0.38 0.11 152;
+
+    /* Chart */
+    --chart-1: 0.55 0.14 152;
+    --chart-2: 0.6 0.12 175;
+    --chart-3: 0.65 0.1 130;
+    --chart-4: 0.7 0.12 90;
+    --chart-5: 0.75 0.1 200;
+
+    /* Sidebar */
+    --sidebar: 0.96 0.02 152;
+    --sidebar-foreground: 0.18 0.04 152;
+    --sidebar-primary: 0.38 0.11 152;
+    --sidebar-primary-foreground: 0.98 0.01 152;
+    --sidebar-accent: 0.88 0.06 175;
+    --sidebar-accent-foreground: 0.22 0.1 175;
+    --sidebar-border: 0.88 0.03 152;
+    --sidebar-ring: 0.38 0.11 152;
+
+    /* Custom clinic tokens */
+    --forest: 0.32 0.13 148;
+    --forest-mid: 0.45 0.12 152;
+    --forest-light: 0.72 0.09 152;
+    --teal: 0.5 0.12 182;
+    --teal-light: 0.84 0.07 182;
+    --warm-white: 0.98 0.008 90;
+    --cream: 0.95 0.018 90;
+    --gold: 0.75 0.12 75;
+    --gold-deep: 0.55 0.14 75;
+  }
+
+  .dark {
+    --background: 0.14 0.03 152;
+    --foreground: 0.96 0.01 152;
+    --card: 0.18 0.04 152;
+    --card-foreground: 0.96 0.01 152;
+    --popover: 0.22 0.05 152;
+    --popover-foreground: 0.96 0.01 152;
+    --primary: 0.7 0.1 152;
+    --primary-foreground: 0.14 0.03 152;
+    --secondary: 0.22 0.05 152;
+    --secondary-foreground: 0.9 0.02 152;
+    --muted: 0.22 0.05 152;
+    --muted-foreground: 0.65 0.06 152;
+    --accent: 0.3 0.08 175;
+    --accent-foreground: 0.85 0.06 175;
+    --destructive: 0.704 0.191 22.216;
+    --destructive-foreground: 0.205 0 0;
+    --border: 1 0 0 / 10%;
+    --input: 1 0 0 / 15%;
+    --ring: 0.65 0.09 152;
+    --chart-1: 0.65 0.14 152;
+    --chart-2: 0.65 0.12 175;
+    --chart-3: 0.7 0.1 130;
+    --chart-4: 0.72 0.12 90;
+    --chart-5: 0.75 0.1 200;
+    --sidebar: 0.18 0.04 152;
+    --sidebar-foreground: 0.96 0.01 152;
+    --sidebar-primary: 0.7 0.1 152;
+    --sidebar-primary-foreground: 0.14 0.03 152;
+    --sidebar-accent: 0.3 0.08 175;
+    --sidebar-accent-foreground: 0.85 0.06 175;
+    --sidebar-border: 1 0 0 / 10%;
+    --sidebar-ring: 0.65 0.09 152;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ---- Custom Utility Classes ---- */
+@layer utilities {
+  .font-display {
+    font-family: "Fraunces", Georgia, serif;
+  }
+  .font-serif-instrument {
+    font-family: "Instrument Serif", Georgia, serif;
+  }
+
+  /* Leaf / botanical decorative divider */
+  .divider-leaf::before {
+    content: "✦";
+    display: block;
+    text-align: center;
+    font-size: 1.25rem;
+    color: oklch(var(--forest-light));
+    margin-bottom: 0.5rem;
+  }
+
+  /* Glass card effect */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  /* Gradient text */
+  .text-gradient-forest {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--forest)) 0%,
+      oklch(var(--teal)) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Noise overlay for depth */
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  /* Input focus ring override for the clinic theme */
+  .clinic-input:focus-visible {
+    outline: none;
+    ring: 2px solid oklch(var(--forest));
+    border-color: oklch(var(--forest));
+  }
+}
+
+/* ---- Scrollbar styling ---- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(var(--cream));
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(var(--forest-light));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(var(--forest-mid));
+}
+
+/* ---- Hero section background ---- */
+.hero-bg {
+  background-image: url("/assets/generated/clinic-hero.dim_1200x500.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* ---- Botanical pattern divider ---- */
+.botanical-divider {
+  position: relative;
+  text-align: center;
+}
+.botanical-divider::after {
+  content: "— ✦ —";
+  display: block;
+  color: oklch(var(--forest-light));
+  font-size: 1rem;
+  letter-spacing: 0.3em;
+  margin-top: 0.75rem;
+}
